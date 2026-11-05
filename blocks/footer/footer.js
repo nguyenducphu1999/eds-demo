@@ -1,20 +1,11 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-
-/**
- * loads and decorates the footer
- * @param {Element} block The footer block element
- */
-export default async function decorate(block) {
-  // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  const fragment = await loadFragment(footerPath);
-
-  // decorate footer DOM
-  block.textContent = '';
-  const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-
-  block.append(footer);
+export default function decorate(block) {
+  const footer = document.createElement('footer');
+  footer.className = 'site-footer';
+  footer.id = 'support';
+  footer.innerHTML = `<div class="footer-main"><div class="footer-brand"><span class="lg-symbol">L</span><strong>LG</strong><p>Life's Good</p></div>
+    <div><h3>Sản phẩm</h3><a href="#products">TV & Loa thanh</a><a href="#products">Thiết bị gia dụng</a><a href="#products">Màn hình & Laptop</a></div>
+    <div><h3>Hỗ trợ</h3><a href="#support">Liên hệ với chúng tôi</a><a href="#support">Bảo hành & sửa chữa</a><a href="#support">Câu hỏi thường gặp</a></div>
+    <div><h3>Về LG</h3><a href="#support">Giới thiệu LG</a><a href="#support">Tin tức</a><a href="#support">Cơ hội nghề nghiệp</a></div></div>
+    <div class="footer-bottom"><span>© 2026 LG Electronics. Demo giao diện EDS.</span><span>Quyền riêng tư　 Điều khoản sử dụng</span></div>`;
+  block.replaceWith(footer);
 }

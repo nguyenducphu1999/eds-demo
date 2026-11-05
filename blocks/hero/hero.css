@@ -1,37 +1,12 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-.hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
-}
-
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
-}
+.hero-banner { max-width:1440px; min-height:530px; margin:24px auto 0; border-radius:18px; overflow:hidden; position:relative; display:grid; grid-template-columns: .9fr 1.1fr; align-items:center; padding:60px clamp(30px,6vw,90px); background:linear-gradient(112deg,#f5f3f1 0%,#e7e7e8 52%,#c8cbd0 100%); }
+.hero-copy { position:relative; z-index:2; max-width:440px; }
+.hero-copy h1 { font-size:clamp(42px,5vw,68px); line-height:1.02; letter-spacing:-.06em; margin:18px 0; }
+.hero-copy p { color:#555; line-height:1.7; max-width:360px; margin-bottom:28px; }
+.hero-art { height:390px; position:relative; display:grid; place-items:center; }
+.tv { width:min(90%,590px); height:310px; position:relative; border:10px solid #161719; border-bottom-width:14px; border-radius:9px; background:#111; box-shadow:0 35px 55px #3335; transform:perspective(900px) rotateY(-8deg); z-index:1; }
+.tv-screen { position:absolute; inset:0; background:radial-gradient(ellipse at 65% 35%,#f8c5a7 0%,transparent 25%),radial-gradient(ellipse at 35% 65%,#df6881 0%,transparent 35%),linear-gradient(130deg,#2d345d,#7b7fa3 48%,#f3b7a0); }
+.tv-stand { position:absolute; width:120px; height:45px; left:calc(50% - 60px); bottom:-57px; background:linear-gradient(#333,#111); clip-path:polygon(40% 0,60% 0,100% 100%,0 100%); }
+.orb { position:absolute; border-radius:50%; filter:blur(1px); }
+.orb-one { width:260px;height:260px;right:0;top:5px;background:#e9b8a8aa; }
+.orb-two { width:170px;height:170px;left:5%;bottom:10px;background:#aeb5caaa; }
+@media(max-width:760px) { .hero-banner { margin:12px 12px 0; padding:42px 24px 20px; grid-template-columns:1fr; min-height:0; } .hero-copy h1 { font-size:44px; } .hero-art { height:250px; margin-top:12px; } .tv { height:175px; border-width:7px; } .tv-stand { bottom:-43px; height:32px; } }
